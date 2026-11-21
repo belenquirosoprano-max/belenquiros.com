@@ -53,7 +53,7 @@ const eventGrid=document.querySelector('.event-grid'),eventPrev=document.querySe
       return response.json();
     })
     .then((feed) => {
-      const posts = (feed.posts || []).slice(0, 6).filter((post) => post.permalink && (post.thumbnailUrl || post.sizes?.small?.mediaUrl || post.mediaUrl));
+      const posts = (feed.posts || []).filter((post) => post.permalink && (post.thumbnailUrl || post.sizes?.small?.mediaUrl || post.mediaUrl));
       if (!posts.length) return;
       const cards = posts.map((post) => {
         const link = document.createElement('a');
